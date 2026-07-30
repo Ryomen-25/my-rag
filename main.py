@@ -17,11 +17,16 @@ print(f"langchain-google-genai version: {version('langchain-google-genai')}\n")
 def main():
 
     # Test Gemini
-    llm_genai = ChatGoogleGenerativeAI(
-        model="gemini-3.5-flash",
-        temperature=0)
-    response_genai = llm_genai.invoke("Say 'setup complete!' in one word")
-    print(f"Response from Gemini: {response_genai.content}\n")
+    #llm_genai = ChatGoogleGenerativeAI(
+    #    model="gemini-2.0-flash",
+    #    temperature=0)
+    #response_genai = llm_genai.invoke("Say 'setup complete!' in one word")
+    #print(f"Response from Gemini: {response_genai.content}\n")
+    
+    llm_reasoning = ChatGroq(
+    model="deepseek-r1-distill-llama-70b",
+    temperature=0.6
+)
     
     # Test Groq
     llm_llama = ChatGroq(
@@ -30,6 +35,11 @@ def main():
     )
     response_llama = llm_llama.invoke("Say 'setup complete!' in one word")
     print(f"Response from llama: {response_llama.content}")
+    
+    llm_fast = ChatGroq(
+    model="llama-3.1-8b-instant",
+    temperature=0
+)
 
     print("Setup complete!")
 
