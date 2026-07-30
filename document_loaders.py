@@ -35,15 +35,22 @@ def load_text_file():
         os.remove(temp_file_path)
     
     
-    if __name__ == "__main__":
-        load_text_file()
+
         
-               
-def pdf_loader():
-    pass
+                   
+def pdf_loader(pdf_path: str):
+    loader = PyPDFLoader(pdf_path)
+    documents = loader.load()
+    
+    print(f"Loaded {len(documents)} document(s) from PDF")
+    for i, doc in enumerate(documents):
+        print(f"Document {i+1} Content Preview: {doc.page_content[:100]}")
+        print(f"Metadata: {doc.metadata}")
     
             
-             
+if __name__ == "__main__":
+    #load_text_file()  
+    pdf_loader("/home/Ryomen/my-rag/docs/langchain_demo.pdf")           
         
         
  
