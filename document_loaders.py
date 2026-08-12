@@ -50,7 +50,7 @@ def pdf_loader(pdf_path: str):
             
 if __name__ == "__main__":
     #load_text_file()  
-    pdf_loader("/home/Ryomen/my-rag/docs/langchain_demo.pdf")           
+    pdf_loader("C:\\Users\\moham\\my-rag\\docs\\langchain_demo.pdf")           
         
         
  
